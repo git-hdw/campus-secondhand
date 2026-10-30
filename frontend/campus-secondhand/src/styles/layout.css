@@ -1,0 +1,77 @@
+/* Shared layout. Page-local colors use the tokens in theme.css. */
+#page-content * { box-sizing: border-box; }
+#page-content button, #page-content input, #page-content textarea, #page-content select { font: inherit; }
+#page-content a { text-underline-offset: 4px; }
+#page-content button:focus-visible, #page-content a:focus-visible, #page-content [tabindex="0"]:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 4px; }
+#page-content button:not(:disabled):hover { filter: brightness(.97); }
+#page-content .main-content { scroll-margin-top: calc(var(--shell-top, 0px) + 24px); }
+#page-content .products-page .main-content, #page-content .product-detail-page .main-content, #page-content .profile-page .main-content, #page-content .drafts-page .main-content {
+  padding: var(--ui-page-top) var(--ui-page-gutter) 32px; max-width: var(--ui-content-width); margin: auto;
+}
+#page-content .products-page .page-header { text-align: left; margin-bottom: 24px; }
+#page-content .products-page .page-title { font-size: 30px; margin: 0 0 4px; letter-spacing: -.6px; }
+#page-content .products-page .page-subtitle { font-size: 14px; margin: 0; }
+#page-content .products-page .search-section { margin-bottom: 20px; }
+#page-content .products-page .search-bar { border: 1px solid #dedede; border-radius: 12px; padding: 6px 8px 6px 16px; background: white; box-shadow: none; }
+#page-content .products-page .search-bar input { min-width: 0; padding: 8px; height: 40px; }
+#page-content .products-page .search-btn { min-height: 40px; padding: 8px 20px; flex-shrink: 0; }
+#page-content .products-page .filter-tabs { gap: 8px; flex-wrap: wrap; }
+#page-content .products-page .filter-tab { min-height: 40px; padding: 7px 16px; font-size: 14px; }
+#page-content .products-page .product-card { display: flex; flex-direction: column; text-decoration: none; overflow: hidden; }
+#page-content .products-page .product-image { position: relative; width: 100%; overflow: hidden; }
+#page-content .products-page .product-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+/* Place the bicycle itself inside the square crop, below the tall background. */
+#page-content .products-page .product-img[src$="/campus-bike.jpg"] { object-position: center bottom; }
+#page-content .products-page .image-placeholder { display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center; color: #777; font-size: 12px; }
+#page-content .products-page .image-placeholder svg { width: 30px; height: 30px; opacity: .5; }
+#page-content .products-page .advanced-filter-options { position: relative; width: 100%; margin-top: 12px; padding: 20px; background: white; box-shadow: 0 3px 15px #0000000a; border: 1px solid #e8e8e8; border-radius: 12px; z-index: 3; }
+#page-content .products-page .advanced-filters { width: 100%; }
+#page-content .products-page .search-section { display: block; }
+#page-content .products-page .advanced-filters { margin-top: 12px; }
+#page-content .products-page .condition-btn, #page-content .products-page .sort-btn { border: 1px solid #ddd; border-radius: 8px; color: #555; }
+#page-content .products-page .condition-btn.active, #page-content .products-page .sort-btn.active { background: #fff4ac; color: #1a1a1a; border-color: #ceb900; }
+#page-content .inline-error { color: #b42318; background: #fff1ee; border-radius: 8px; padding: 12px 16px; font-size: 14px; }
+#page-content .inline-error button { border: 0; background: transparent; text-decoration: underline; margin-left: 8px; color: inherit; }
+#page-content .login-page, #page-content .register-page, #page-content .reset-page { padding: 32px 20px; }
+#page-content .auth-home { display: block; text-align: center; margin-top: 20px; color: #555; font-size: 14px; }
+#page-content .profile-page .profile-card { padding: 28px; gap: 24px; border-radius: 14px; }
+#page-content .profile-page .profile-header { margin-bottom: 24px; }
+#page-content .profile-page .profile-tabs { gap: 4px; margin-bottom: 24px; overflow-x: auto; flex-wrap: nowrap; }
+#page-content .profile-page .tab-btn { white-space: nowrap; padding: 13px 16px; font-size: 14px; flex-shrink: 0; }
+#page-content .profile-page .order-card { border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px; }
+#page-content .profile-page .order-date, #page-content .profile-page .order-id { font-size: 12px; color: #666; }
+#page-content .profile-page .order-actions { gap: 8px; }
+#page-content .profile-page .modal-content { max-height: calc(100dvh - 40px); max-width: min(600px, calc(100vw - 32px)); overflow-y: auto; background: white; }
+#page-content .profile-page .modal-overlay { z-index: 1100; }
+#page-content .profile-page .listing-btn { min-width: 36px; min-height: 36px; }
+#page-content .help-page main { max-width: 820px; padding: 36px 28px 60px; margin: auto; }
+#page-content .help-page section { padding: 20px 24px; border: 1px solid #e8e8e8; border-radius: 12px; margin-bottom: 14px; background: white; scroll-margin-top: 100px; }
+#page-content .help-page h1 { margin-top: 0; }
+#page-content .help-page h2 { font-size: 18px; }
+#page-content .help-page p, #page-content .help-page li { color: #555; font-size: 14px; line-height: 1.9; }
+#page-content .admin-dashboard, #page-content .admin-users, #page-content .admin-products, #page-content .admin-orders, #page-content .admin-categories, #page-content .admin-messages { max-width: var(--ui-content-width); margin: auto; padding: var(--ui-page-top) var(--ui-page-gutter); border-top: 0; }
+#page-content .admin-dashboard .admin-header, #page-content .admin-users .admin-header, #page-content .admin-products .page-header { margin: 0 0 24px; padding: 0; }
+#page-content .admin-dashboard h1, #page-content .admin-users h1, #page-content .admin-products h1, #page-content .admin-orders h1, #page-content .admin-categories h1, #page-content .admin-messages h1 { font-size: 26px; }
+#page-content .users-table-container, #page-content .table-container, #page-content .categories-table-container, #page-content .messages-table-container { overflow-x: auto; }
+#page-content .admin-users table, #page-content .admin-products table, #page-content .admin-messages table { width: 100%; min-width: 740px; border-collapse: collapse; background: white; font-size: 13px; }
+#page-content .admin-users th, #page-content .admin-products th, #page-content .admin-messages th { background: #f2f2ee; color: #555; text-align: left; }
+#page-content .admin-users td, #page-content .admin-products td, #page-content .admin-messages td { border-bottom: 1px solid #eee; }
+#page-content .main-footer { padding: 28px; font-size: 12px; color: #666; }
+#page-content .main-footer a { color: #555; }
+@media (max-width: 760px) {
+#page-content .products-page .main-content, #page-content .product-detail-page .main-content, #page-content .profile-page .main-content, #page-content .drafts-page .main-content { padding: 24px 16px 40px; }
+#page-content .products-page .page-title { font-size: 26px; }
+#page-content .product-place { display: none; }
+#page-content .profile-page .profile-card { padding: 22px; }
+#page-content .profile-page .order-content { flex-wrap: wrap; gap: 12px; }
+#page-content .profile-page .order-price-section { width: 100%; text-align: left; }
+#page-content .profile-page .order-header { flex-wrap: wrap; gap: 8px; }
+#page-content .profile-page .order-actions { align-items: flex-start; flex-wrap: wrap; }
+#page-content .profile-page .tab-btn { padding: 12px; }
+#page-content .help-page main { padding: 24px 16px; }
+#page-content .help-page section { padding: 18px; }
+#page-content .admin-dashboard, #page-content .admin-users, #page-content .admin-products, #page-content .admin-orders, #page-content .admin-categories, #page-content .admin-messages { padding: 20px 16px; }
+#page-content .admin-dashboard .admin-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+
+#page-content .products-table-container { overflow-x: auto; }

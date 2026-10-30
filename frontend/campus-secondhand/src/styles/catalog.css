@@ -1,0 +1,37 @@
+/* Shared product presentation across Home, Products and Profile. */
+#page-content .catalog-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+#page-content .catalog-grid > .empty-state { grid-column: 1 / -1; }
+#page-content .catalog-card { display: flex; flex-direction: column; min-width: 0; background: var(--color-card) !important; border: 1px solid var(--ui-border) !important; border-radius: var(--ui-radius-panel) !important; overflow: hidden; padding: 0; color: var(--color-foreground); text-decoration: none; box-shadow: none !important; backdrop-filter: none; transition: border-color .15s ease; }
+#page-content .catalog-card:hover { transform: none; border-color: #b8b8b0 !important; box-shadow: none; }
+#page-content .catalog-picture { position: relative; width: 100%; height: auto; aspect-ratio: 1; overflow: hidden; border-radius: 0; background: #ededeb; }
+#page-content .catalog-picture > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+#page-content .catalog-picture > img[src$="/campus-bike.jpg"] { object-position: center bottom; }
+#page-content .catalog-picture > img[src*="/sample/"] { object-fit: contain; }
+#page-content .catalog-body { padding: 16px !important; display: flex; flex: 1; flex-direction: column; gap: 0; min-width: 0; }
+#page-content .catalog-title { margin: 0 0 8px; height: 3.2em; min-height: 3.2em; font-size: 15px !important; font-weight: 600 !important; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; overflow: hidden; overflow-wrap: anywhere; }
+#page-content .catalog-price, #page-content .catalog-price * { color: var(--color-accent) !important; font-size: 22px; font-weight: 700; line-height: 1.2; }
+#page-content .catalog-price { margin: 0 0 10px; display: block; }
+#page-content .catalog-price .currency { font-size: 13px; margin-right: 3px; }
+#page-content .catalog-location, #page-content .catalog-location * { color: var(--ui-muted) !important; font-size: 12px; line-height: 1.6; }
+#page-content .catalog-location { display: flex; align-items: center; gap: 5px; min-height: 20px; margin: 0; overflow-wrap: anywhere; }
+#page-content .catalog-location > svg { width: 14px; height: 14px; flex: none; }
+#page-content .catalog-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 0; }
+#page-content .catalog-views { font-size: 12px; color: var(--ui-muted) !important; white-space: nowrap; }
+#page-content .catalog-status { position: absolute; inset: 12px auto auto 12px; padding: 4px 9px; background: #fff6b2 !important; color: #514500 !important; border: 1px solid #f1dfa0; border-radius: 6px; font-size: 12px; font-weight: 600; line-height: 1.5; }
+#page-content .catalog-status.status-pending, #page-content .catalog-status.pending { background: #fff4df !important; color: #875400 !important; border-color: #edd9b4; }
+#page-content .catalog-status.status-sold, #page-content .catalog-status.status-offline, #page-content .catalog-status.sold { background: #f2f2f2 !important; color: #626262 !important; border-color: #ddd; }
+#page-content .catalog-actions { display: flex; gap: 8px; padding-top: 14px; margin-top: 12px; border-top: 1px solid var(--ui-border); }
+#page-content .catalog-actions button { min-height: 36px; padding: 7px 10px; border-radius: var(--ui-radius-control); transform: none; border: 1px solid #dedede; background: #f6f6f6; color: #444 !important; }
+#page-content .catalog-actions button svg { color: inherit !important; }
+#page-content .catalog-actions button.delete { background: #fff5f3; border-color: #efdad4; color: #a33c29 !important; }
+#page-content .catalog-actions button:hover { transform: none; filter: brightness(.98); }
+@container workspace (max-width: 1040px) { #page-content .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container workspace (max-width: 760px) { #page-content .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
+@container workspace (max-width: 340px) { #page-content .catalog-grid { grid-template-columns: minmax(0, 1fr); } }
+/* Media-query fallback keeps older engines usable without container queries. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 1360px) { #page-content .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 900px) { #page-content .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 375px) { #page-content .catalog-grid { grid-template-columns: minmax(0, 1fr); } }
+}
+@supports not (aspect-ratio: 1) { #page-content .catalog-picture { height: 0; padding-bottom: 100%; } }
